@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/04/28 17:43:13 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/04/28 18:02:02 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ OBJ = $(SRC:.c=.o)
 
 NAME = PhoneBook
 
-ifeq ($(d), 1)
+#DEBUG
+ifeq ($(DEBUG), 1)
    OPTS = -fsanitize=address -g
 endif
 
