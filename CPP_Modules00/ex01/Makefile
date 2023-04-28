@@ -6,13 +6,14 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/04/27 18:08:32 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/04/28 17:43:13 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
 FLAGS = -Wall -Wextra -Werror
-SRC = PhoneBook.cpp\
+SRC = main.cpp\
+	PhoneBook.cpp
 
 OBJ = $(SRC:.c=.o)
 
