@@ -6,18 +6,20 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/04/30 14:28:59 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/04/30 17:05:38 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
 FLAGS = -Wall -Wextra -Werror
 SRC = main.cpp\
-	PhoneBook.cpp
+		Zombie.cpp\
+		newZombie.cpp\
+		randomChump.cpp\
 
 OBJ = $(SRC:.c=.o)
 
-NAME = PhoneBook
+NAME = Zombie
 
 #DEBUG
 ifeq ($(DEBUG), 1)
