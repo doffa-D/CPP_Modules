@@ -5,22 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/04/30 19:31:31 by hdagdagu         ###   ########.fr        #
+#    Created: 2023/04/30 20:22:10 by hdagdagu          #+#    #+#              #
+#    Updated: 2023/04/30 21:17:34 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp\
-		Zombie.cpp\
-		newZombie.cpp\
-		randomChump.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
-
-NAME = Zombie
+NAME = brain
 
 #DEBUG
 ifeq ($(DEBUG), 1)
@@ -41,7 +37,4 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 
-re:fclean all
-
-test:all
-	./$(NAME)
+re:fclean $(NAME)

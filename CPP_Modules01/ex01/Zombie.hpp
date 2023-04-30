@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 17:41:53 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/04/30 17:55:30 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/04/28 16:55:42 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/04/30 20:15:25 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 
-int main()
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
+#define num_zombie 5
+
+#include <iostream>
+
+class Zombie
 {
-    Zombie* zombie_ptr = Zombie::newZombie("Alix");
-    zombie_ptr->announce();
-    randomChump("James");
-    delete zombie_ptr;
-}
+    private:
+        std::string name;
+    public:
+        ~Zombie();
+        void    set_name(std::string name);
+        void    announce();
+};
+Zombie* zombieHorde( int N, std::string name );
+
+#endif 
