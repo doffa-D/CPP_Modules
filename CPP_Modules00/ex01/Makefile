@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/04/30 14:28:59 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/04/30 19:31:58 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ FLAGS = -Wall -Wextra -Werror
 SRC = main.cpp\
 	PhoneBook.cpp
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.cpp=.o)
 
 NAME = PhoneBook
 
@@ -29,11 +29,11 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@$(C++) $(FLAGS) $(OBJ) $(OPTS) -o $(NAME)
 
-%.o : %.C
+%.o : %.cpp
 	@$(C++) $(FLAGS) -c $< -o $@
 
 clean :
-	@rm -f $(OBJE)
+	@rm -f $(OBJ)
 
 fclean : clean
 	@rm -f $(NAME)
