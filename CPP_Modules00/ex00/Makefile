@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/22 19:56:43 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/04/30 19:32:01 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/07/12 10:47:28 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,6 @@ SRC = megaphone.cpp\
 OBJ = $(SRC:.cpp=.o)
 
 NAME = megaphone
-
-#DEBUG
-ifeq ($(DEBUG), 1)
-   OPTS = -fsanitize=address -g
-endif
 
 all : $(NAME)
 

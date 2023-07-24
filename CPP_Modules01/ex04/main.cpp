@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 16:55:42 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/22 12:02:44 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/07/23 17:20:29 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/07/24 10:02:04 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Read.hpp"
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
-#include <iostream>
-
-class Zombie
+int main(int argc,char **argv) 
 {
-    private:
-        std::string name;
-    public:
-        Zombie(std::string name);
-        ~Zombie();
-        void announce( void );
-};
+    if(argc != 4)
+    {
+        std::cout << "Usage ./Sed fileName String1 String2" << std::endl;
+        return EXIT_FAILURE;
+    }
+    Read Manager(argv[1]);
+    Manager.Reaplace((std::string)argv[2],(std::string)argv[3]);
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
-#endif
+    return 0;
+}

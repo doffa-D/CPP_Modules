@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/07/22 14:38:38 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/07/24 10:01:36 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,19 @@
 C++ = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJDIR = .objFiles
-FILES = main Zombie zombieHorde
+FILES = main Read
 
-SRC = $(FILES:=.c)
-OBJ = $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
+SRC = $(FILES:=.cpp)
+OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
-NAME = Zombie
+NAME = Read
 
 # DEBUG
 ifeq ($(DEBUG), 1)
    OPTS = -fsanitize=address -g
 endif
 
-all: $(NAME)
+all: $(OBJDIR) $(NAME)
 
 $(NAME): $(OBJ)
 	$(C++) $(FLAGS) $(OBJ) $(OPTS) -o $(NAME)
@@ -38,7 +38,7 @@ $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

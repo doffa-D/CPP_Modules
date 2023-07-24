@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 16:55:42 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/22 12:02:44 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/07/23 15:43:36 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/07/23 15:58:53 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanA.hpp"
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
-#include <iostream>
-
-class Zombie
+HumanA::HumanA(std::string name ,Weapon &weapon) : name_(name), Weapon_(weapon)
 {
-    private:
-        std::string name;
-    public:
-        Zombie(std::string name);
-        ~Zombie();
-        void announce( void );
-};
+    
+}
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
-#endif
+HumanA::~HumanA()
+{
+
+}
+void HumanA::attack()
+{
+    if(this->Weapon_.getType().size() != 0)
+        std::cout << this->name_ << "attacks with their" << this->Weapon_.getType() << std::endl;
+    else
+        std::cout << this->name_ << "doesn't have Weapon to atack" << std::endl;
+}

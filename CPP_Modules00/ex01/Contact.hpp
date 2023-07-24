@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 16:55:42 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/22 12:02:44 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/07/16 13:18:55 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/07/21 15:45:04 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <iostream>
+#include <iomanip>
+#include <string>
 
-class Zombie
+class Contact
 {
-    private:
-        std::string name;
-    public:
-        Zombie(std::string name);
-        ~Zombie();
-        void announce( void );
+	private:
+		std::string first_name;
+		std::string last_name;
+		std::string nick_name;
+		std::string phone_number;
+		std::string darkest_secret;
+	public:
+		Contact();
+		~Contact();
+		void SetContact(std::string input,int i);
+		void print_input(int i);
+
 };
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
 #endif

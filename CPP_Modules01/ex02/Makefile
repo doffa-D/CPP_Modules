@@ -5,36 +5,42 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/30 20:22:10 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/04/30 21:17:34 by hdagdagu         ###   ########.fr        #
+#    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
+#    Updated: 2023/07/22 14:44:32 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 C++ = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp\
+OBJDIR = .objFiles
+FILES = main
 
-OBJ = $(SRC:.cpp=.o)
+SRC = $(FILES:=.c)
+OBJ = $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
 NAME = brain
 
-#DEBUG
+# DEBUG
 ifeq ($(DEBUG), 1)
    OPTS = -fsanitize=address -g
 endif
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	$(C++) $(FLAGS) $(OBJ) $(OPTS) -o $(NAME)
 
-%.o : %.cpp
+$(OBJDIR)/%.o: %.cpp
 	$(C++) $(FLAGS) -c $< -o $@
 
-clean :
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+clean:
 	rm -f $(OBJ)
 
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
 
-re:fclean $(NAME)
+re: fclean all
