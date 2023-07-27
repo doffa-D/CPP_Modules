@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/07/22 14:38:38 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/07/27 16:46:03 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -rf $(OBJDIR)
 
 re: fclean all
