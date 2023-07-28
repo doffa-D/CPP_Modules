@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:07:58 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/27 16:43:41 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:35:15 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,99 @@ std::ostream& operator<<(std::ostream& out, const Fixed &assign)
     out << assign.toFloat();
     return out;
 }
+
+//------------ Comparison operators: ------------------//
+bool Fixed::operator>(const Fixed& assign)
+{
+    return toFloat() > assign.toFloat();
+}
+bool Fixed::operator<(const Fixed &assign)
+{
+    return toFloat() < assign.toFloat();
+}
+bool Fixed::operator>=(const Fixed &assign)
+{
+    return toFloat() >= assign.toFloat();
+}
+bool Fixed::operator<=(const Fixed &assign)
+{
+    return toFloat() <= assign.toFloat();
+}
+bool Fixed::operator!=(const Fixed &assign)
+{
+    return toFloat() != assign.toFloat();
+}
+//------------------ Arithmetic operators: ------------------//
+Fixed Fixed::operator+(const Fixed &assign)
+{
+    return Fixed(toFloat() + assign.toFloat());
+}
+Fixed Fixed::operator-(const Fixed &assign)
+{
+    return Fixed(toFloat() - assign.toFloat());
+}
+Fixed Fixed::operator*(const Fixed &assign)
+{
+    return Fixed(toFloat() * assign.toFloat());
+}
+Fixed Fixed::operator/(const Fixed &assign)
+{
+    return Fixed(toFloat() / assign.toFloat());
+}
+
+//------------------ increment/decrement: ------------------//
+
+Fixed& Fixed::operator--( void )
+{
+    --this->FixedPointe;
+    return *this;
+}
+Fixed& Fixed::operator--( int )
+{
+    this->FixedPointe--;
+    return *this;
+}
+Fixed& Fixed::operator++( void )
+{
+    this->FixedPointe++;
+    return *this;
+}
+
+Fixed& Fixed::operator++( int )
+{
+    ++this->FixedPointe;
+    return *this;
+}
+
+
+Fixed& Fixed::mini(Fixed& Fixed1,Fixed& Fixed2 )
+{
+    if(Fixed1.FixedPointe < Fixed2.FixedPointe)
+        return Fixed1;
+    return Fixed2;
+}
+
+const Fixed& Fixed::mini(const Fixed& Fixed1,const Fixed& Fixed2 )
+{
+    if(Fixed1.FixedPointe < Fixed2.FixedPointe)
+        return Fixed1;
+    return Fixed2;
+}
+
+Fixed& Fixed::max(Fixed& Fixed1,Fixed& Fixed2 )
+{
+    if(Fixed1.FixedPointe > Fixed2.FixedPointe)
+        return Fixed1;
+    return Fixed2;
+}
+const Fixed& Fixed::max(const Fixed& Fixed1,const Fixed& Fixed2 )
+{
+    if(Fixed1.FixedPointe > Fixed2.FixedPointe)
+        return Fixed1;
+    return Fixed2;
+}
+
+
 
 // Destructor
 Fixed::~Fixed()

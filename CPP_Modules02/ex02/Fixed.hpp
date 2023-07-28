@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:24:01 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/27 12:24:03 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:32:49 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,35 @@ class Fixed
         Fixed(const float value);
         Fixed(const Fixed &copy);
         ~Fixed();
+
         Fixed& operator=(const Fixed &assign);
+        Fixed operator+(const Fixed &assign);
+        Fixed operator-(const Fixed &assign);
+        Fixed operator*(const Fixed &assign);
+        Fixed operator/(const Fixed &assign);
+
+        bool operator>(const Fixed &assign);
+        bool operator<(const Fixed &assign);
+        bool operator>=(const Fixed &assign);
+        bool operator<=(const Fixed &assign);
+        bool operator!=(const Fixed &assign);
+        bool operator==(const Fixed &assign);
+        
+        Fixed& operator--( void );
+        Fixed& operator++( void );
+        Fixed& operator++( int );
+        Fixed& operator--( int );
+
+        static Fixed& mini(Fixed& Fixed1,Fixed& Fixed2 );
+        static const Fixed& mini(const Fixed& Fixed1,const Fixed& Fixed2 );
+        static Fixed& max(Fixed& Fixed1,Fixed& Fixed2 );
+        static const Fixed& max(const Fixed& Fixed1,const Fixed& Fixed2 );
+
+
         int getRawBits( void ) const;
         void setRawBits( int const raw );
-        float toFloat( void ) const;
         int toInt( void ) const;
+        float toFloat( void ) const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed &assign);
