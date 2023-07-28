@@ -6,14 +6,14 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:09:31 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/28 11:50:17 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:45:43 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 // Default Constructors
-ClapTrap::ClapTrap() 
+ClapTrap::ClapTrap()  : Name("Default"),HitPoints(10),EnergyPoints(10),AttackDamage(0) 
 {
     std::cout << "Default Constructor called" << std::endl;
 }
@@ -34,7 +34,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 // Destructor
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap " << Name << " Destroyed" << std::endl;
+    std::cout << "ClapTrap " << Name << " Destructor called" << std::endl;
 }
 
 // Operators

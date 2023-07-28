@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/07/28 13:29:07 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/07/28 18:41:46 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 C++ = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJDIR = .objFiles
-FILES = main ClapTrap ScavTrap
+FILES = main ClapTrap ScavTrap FragTrap
 
 SRC = $(FILES:=.cpp)
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

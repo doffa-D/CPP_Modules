@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:09:31 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/28 14:30:19 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:45:39 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 // Destructor
 ClapTrap::~ClapTrap()
 {
-    std::cout << " ClapTrap >> " << Name << " Destroyed" << std::endl;
+    std::cout << " ClapTrap >> " << Name << " Destructor called" << std::endl;
 }
 
 // Operators
