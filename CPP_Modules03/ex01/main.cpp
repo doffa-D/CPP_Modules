@@ -6,17 +6,18 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 10:09:40 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/28 12:01:36 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/28 14:37:29 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap boss("JOJO");
+    ScavTrap boss("JOJO");
     boss.attack("DOFFA");
     boss.takeDamage(5);
     boss.beRepaired(5);
+    boss.guardGate();
     return 0;
 }

@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 10:09:40 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/28 12:01:36 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/07/28 12:00:32 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/07/28 14:36:07 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
+#include <iostream>
+#include <string>
 #include "ClapTrap.hpp"
 
-int main()
+class ScavTrap : public ClapTrap
 {
-    ClapTrap boss("JOJO");
-    boss.attack("DOFFA");
-    boss.takeDamage(5);
-    boss.beRepaired(5);
-    return 0;
-}
+    public:
+        ScavTrap();
+        ScavTrap(std::string Name);
+        ScavTrap(const ScavTrap &copy);
+        ~ScavTrap();
+        void attack(const std::string& target);
+        void guardGate();
+};
+
+#endif // ScavTrap_HPP
