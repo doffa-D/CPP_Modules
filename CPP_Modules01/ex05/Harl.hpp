@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:54:22 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/24 11:39:20 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/29 10:57:07 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Harl
     public:
         Harl();
         ~Harl();
-        void checker(std::string iput);
+        void complain( std::string level );
 };
 
 #endif // !HARL_HPP

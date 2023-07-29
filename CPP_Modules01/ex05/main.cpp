@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:53:54 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/24 12:27:07 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/29 11:01:42 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int main()
 {
     Harl my_harl;
-    my_harl.checker("DEBUG");
-    my_harl.checker("INFO");
-    my_harl.checker("WARNING");
-    my_harl.checker("ERROR");
+    my_harl.complain("DEBUG");
+    // my_harl.complain("INFO");
+    // my_harl.complain("WARNING");
+    // my_harl.complain("ERROR");
 
 }

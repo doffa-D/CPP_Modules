@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:54:16 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/24 12:42:34 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/29 11:05:27 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void Harl::error( void )
     std::cout << std::endl;
 }
 
-void    Harl::checker(std::string input)
+void Harl::complain( std::string level )
 {
     std::string name[] = {"DEBUG","INFO","WARNING","ERROR"};
 
     int i;
     i = 0;
-    while(i < 4 && name[i].compare(input))
+    while(i < 4 && name[i].compare(level))
     {
         i++;
     }
