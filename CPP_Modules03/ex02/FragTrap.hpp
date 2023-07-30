@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 18:28:23 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/28 18:43:28 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/30 15:41:31 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class FragTrap : public ClapTrap
         FragTrap();
         FragTrap(std::string Name);
         FragTrap(const FragTrap &copy);
+        FragTrap & operator=(const FragTrap &assign);
         ~FragTrap();
         void highFivesGuys(void);
 };

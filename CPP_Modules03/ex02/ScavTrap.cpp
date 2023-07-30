@@ -6,14 +6,14 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 12:00:28 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/28 18:42:49 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/30 15:40:42 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 // Default Constructors
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap("Default")
 {
     Name = "Default";
     HitPoints = 100;
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap()
 }
 
 // Constructors
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     Name = name;
     HitPoints = 100;
@@ -43,6 +43,15 @@ ScavTrap::ScavTrap(const ScavTrap &copy)
         AttackDamage = copy.AttackDamage;
     }
     std::cout << " ScavTrap >> "  << "Copy Constructor called" << std::endl;
+}
+
+ScavTrap & ScavTrap::operator=(const ScavTrap &assign)
+{
+    this->Name = assign.Name;
+    this->HitPoints = assign.HitPoints;
+    this->EnergyPoints = assign.EnergyPoints;
+    this->AttackDamage = assign.AttackDamage;
+    return *this;
 }
 
 void ScavTrap::attack(const std::string& target)

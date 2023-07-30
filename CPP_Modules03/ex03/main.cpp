@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Read.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/23 17:28:39 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/30 13:28:39 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/07/28 10:09:40 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/07/30 15:36:28 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READ_HPP
-#define READ_HPP
-#include <iostream>
-#include <fstream>
+#include "DiamondTrap.hpp"
 
-class Read
+int main( void )
 {
-    private:
-        std::string input_file;
-        std::string output_file;
-    public:
-        Read(std::string file_name);
-        ~Read();
-        void Reaplace(std::string finde,std::string reaplace);
-};
+    DiamondTrap ash( "Ash" );
+    DiamondTrap ash2( ash );
+    DiamondTrap ash3(".");
 
-#endif // !READ_HPP
+    ash.whoAmI();
+    ash2.whoAmI();
+    ash3 = ash;
+    ash3.whoAmI();
+
+    ash.attack( "the air" );
+    ash.takeDamage( 10 );
+    ash.beRepaired( 10 );
+
+    return 0;
+}

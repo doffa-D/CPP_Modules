@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 12:00:32 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/30 15:40:09 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/07/30 13:39:04 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/07/30 15:50:45 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-#include <iostream>
-#include <string>
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+class DiamondTrap : public FragTrap,public ScavTrap
 {
+    private:
+        std::string _name;
     public:
-        ScavTrap();
-        ScavTrap(std::string Name);
-        ScavTrap(const ScavTrap &copy);
-        ScavTrap & operator=(const ScavTrap &assign);
-        ~ScavTrap();
+        DiamondTrap();
+        DiamondTrap(std::string name);
+        ~DiamondTrap();
+        DiamondTrap(const DiamondTrap &copy);
+        DiamondTrap & operator=(const DiamondTrap &assign);
         void attack(const std::string& target);
-        void guardGate();
+        void whoAmI(void);
+    
 };
 
-#endif // ScavTrap_HPP
+
+#endif

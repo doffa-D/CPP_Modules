@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Read.hpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/23 17:28:39 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/30 13:28:39 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/07/28 12:00:32 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/07/30 15:48:51 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READ_HPP
-#define READ_HPP
-#include <iostream>
-#include <fstream>
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-class Read
+#include <iostream>
+#include <string>
+#include "ClapTrap.hpp"
+
+class ScavTrap : virtual public ClapTrap
 {
-    private:
-        std::string input_file;
-        std::string output_file;
     public:
-        Read(std::string file_name);
-        ~Read();
-        void Reaplace(std::string finde,std::string reaplace);
+        ScavTrap();
+        ScavTrap(std::string Name);
+        ScavTrap(const ScavTrap &copy);
+        ScavTrap & operator=(const ScavTrap &assign);
+        ~ScavTrap();
+        void attack(const std::string& target);
+        void guardGate();
 };
 
-#endif // !READ_HPP
+#endif // ScavTrap_HPP
