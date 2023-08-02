@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:16:39 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/31 11:19:26 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/07/31 12:27:26 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Animal::Animal(const Animal &copy)
 // Destructor
 Animal::~Animal()
 {
-    std::cout << " Destructor called" << std::endl;
+    std::cout << "Animal Destructor called" << std::endl;
 }
 
 // Operators

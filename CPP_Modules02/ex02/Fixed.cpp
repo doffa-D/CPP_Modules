@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:07:58 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/27 19:35:15 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/02 11:14:18 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,11 @@ Fixed& Fixed::operator--( void )
     --this->FixedPointe;
     return *this;
 }
-Fixed& Fixed::operator--( int )
+Fixed Fixed::operator--( int )
 {
-    this->FixedPointe--;
-    return *this;
+    Fixed tmp(*this);
+    tmp.FixedPointe = this->FixedPointe--;
+    return tmp;
 }
 Fixed& Fixed::operator++( void )
 {
@@ -111,12 +112,14 @@ Fixed& Fixed::operator++( void )
     return *this;
 }
 
-Fixed& Fixed::operator++( int )
+Fixed Fixed::operator++( int )
 {
-    ++this->FixedPointe;
-    return *this;
+    Fixed tmp(*this);
+    tmp.FixedPointe = this->FixedPointe++;
+    return tmp;
 }
 
+//------------------ min/max: ------------------//
 
 Fixed& Fixed::mini(Fixed& Fixed1,Fixed& Fixed2 )
 {

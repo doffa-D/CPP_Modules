@@ -6,14 +6,14 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/07/31 11:20:46 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/07/31 15:08:37 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJDIR = .objFiles
-FILES = main Animal Dog Cat
+FILES = main Animal Dog Cat WrongAnimal WrongCat Brain
 
 SRC = $(FILES:=.cpp)
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:07:58 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/27 16:43:41 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/02 10:31:00 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ Fixed::Fixed(const int value) : FixedPointe(value << fractionalBit)
 }
 
 // Constructors float
-Fixed::Fixed(const float value) : FixedPointe(std::roundf(value * (1 << fractionalBit)))
+Fixed::Fixed(const float value) : FixedPointe(std::roundf(value * 256))
 {
     std::cout << "float Constructor called" << std::endl;
-
 }
 
 // Copy Constructors
