@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 18:28:23 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/30 15:48:54 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/04 15:27:45 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : virtual  public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
     public:
         FragTrap();

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 13:39:04 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/30 15:50:45 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/04 16:14:34 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class DiamondTrap : public FragTrap,public ScavTrap
         DiamondTrap & operator=(const DiamondTrap &assign);
         void attack(const std::string& target);
         void whoAmI(void);
-    
 };
 
 

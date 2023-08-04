@@ -6,16 +6,15 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 18:31:57 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/30 15:41:04 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/04 14:40:09 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 // Default Constructors
-FragTrap::FragTrap() : ClapTrap("Default")
+FragTrap::FragTrap() : ClapTrap()
 {
-    Name = "Default";
     HitPoints = 100;
     EnergyPoints = 100;
     AttackDamage = 30;
@@ -25,7 +24,6 @@ FragTrap::FragTrap() : ClapTrap("Default")
 // Constructors
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-    Name = name;
     HitPoints = 100;
     EnergyPoints = 100;
     AttackDamage = 30;
@@ -33,22 +31,19 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 }
 FragTrap::FragTrap(const FragTrap &copy)
 {
-    if(this != &copy)
-    {
-        Name = copy.Name;
-        HitPoints = copy.HitPoints;
-        EnergyPoints = copy.EnergyPoints;
-        AttackDamage = copy.AttackDamage;
-    }
+    *this = copy;
     std::cout << " FragTrap >> "  << "Copy Constructor called" << std::endl;
 }
 
 FragTrap & FragTrap::operator=(const FragTrap &assign)
 {
-    this->Name = assign.Name;
-    this->HitPoints = assign.HitPoints;
-    this->EnergyPoints = assign.EnergyPoints;
-    this->AttackDamage = assign.AttackDamage;
+    if(this != &assign)
+    {
+        this->name = assign.name;
+        this->HitPoints = assign.HitPoints;
+        this->EnergyPoints = assign.EnergyPoints;
+        this->AttackDamage = assign.AttackDamage;
+    }
     return *this;
 }
 // Destructor
@@ -59,5 +54,5 @@ FragTrap::~FragTrap()
 
 void FragTrap::highFivesGuys()
 {
-    std::cout << " FragTrap >> " << Name << " high Fives" << std::endl;
+    std::cout << " FragTrap >> " << this->name << " high Fives" << std::endl;
 }

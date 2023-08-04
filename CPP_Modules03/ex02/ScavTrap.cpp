@@ -6,68 +6,63 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 12:00:28 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/30 15:40:42 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/04 14:37:36 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 // Default Constructors
-ScavTrap::ScavTrap() : ClapTrap("Default")
+ScavTrap::ScavTrap() : ClapTrap()
 {
-    Name = "Default";
-    HitPoints = 100;
-    EnergyPoints = 50;
-    AttackDamage = 20;
+    this->HitPoints = 100;
+    this->EnergyPoints = 50;
+    this->AttackDamage = 20;
     std::cout << " ScavTrap >> " << "Default Constructor called" << std::endl;
 }
 
 // Constructors
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    Name = name;
-    HitPoints = 100;
-    EnergyPoints = 50;
-    AttackDamage = 20;
-    std::cout << " ScavTrap >> "  << "Default Constructor called" << std::endl;
+    this->HitPoints = 100;
+    this->EnergyPoints = 50;
+    this->AttackDamage = 20;
+    std::cout << " ScavTrap >> "  << " Constructor called" << std::endl;
 }
 
 
 ScavTrap::ScavTrap(const ScavTrap &copy)
 {
-    if(this != &copy)
-    {
-        Name = copy.Name;
-        HitPoints = copy.HitPoints;
-        EnergyPoints = copy.EnergyPoints;
-        AttackDamage = copy.AttackDamage;
-    }
+    *this = copy;
     std::cout << " ScavTrap >> "  << "Copy Constructor called" << std::endl;
 }
 
 ScavTrap & ScavTrap::operator=(const ScavTrap &assign)
 {
-    this->Name = assign.Name;
-    this->HitPoints = assign.HitPoints;
-    this->EnergyPoints = assign.EnergyPoints;
-    this->AttackDamage = assign.AttackDamage;
+    if(this != &assign)
+    {
+        this->name = assign.name;
+        this->HitPoints = assign.HitPoints;
+        this->EnergyPoints = assign.EnergyPoints;
+        this->AttackDamage = assign.AttackDamage;
+    }
     return *this;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
-    if(HitPoints <= 0)
-        std::cout << " ScavTrap >> " << Name << " have no energy" << std::endl;
+    if(this->EnergyPoints <= 0)
+        std::cout << " ScavTrap >> " << this->name << " have no energy" << std::endl;
     else
     {
-        std::cout << " ScavTrap >> " << Name << " Attacks " << target << " , causing " << AttackDamage << " points of damage!" << std::endl;
-        EnergyPoints--;
+        std::cout << " ScavTrap >> " << this->name << " Attacks " << target << " , causing " << AttackDamage << " points of damage!" << std::endl;
+        this->EnergyPoints--;
     }
 }
 
 void ScavTrap::guardGate()
 {
-    std::cout << " ScavTrap >> "  << Name << " ScavTrap is now in Gate keeper mode" << std::endl;
+    std::cout << " ScavTrap >> "  << this->name << " ScavTrap is now in Gate keeper mode" << std::endl;
 }
 
 // Destructor
