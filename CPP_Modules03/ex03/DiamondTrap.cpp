@@ -6,29 +6,23 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 13:34:29 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/04 16:14:37 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/05 10:46:57 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : FragTrap(),ScavTrap()
 {
     ClapTrap::name = "Default _clap_name";
     this->name = "Default";
-    this->HitPoints = 100;
-    this->EnergyPoints = 50;
-    this->AttackDamage = 30;
     std::cout << "DiamondTrap >> " << "Default Constructor called" << std::endl;
 
 }
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name) : FragTrap(name),ScavTrap(name)
 {
     ClapTrap::name = name + "_clap_name";
-    this->HitPoints = 100;
-    this->EnergyPoints = 50;
-    this->AttackDamage = 30;
     std::cout << "DiamondTrap >> " << "Constructor called" << std::endl;
 }
 
@@ -57,10 +51,10 @@ void DiamondTrap::attack(const std::string& target)
 
 void DiamondTrap::whoAmI()
 {
-    std::cout << "DiamondTrap >> "  << "Destructor called" << std::endl;
+    std::cout << "i am a DiamondTrap >> " << this->_name << " ClapTrap name " << this->ClapTrap::name << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "i am a DiamondTrap >> " << this->_name << " ClapTrap name " << this->ClapTrap::name << std::endl;
+    std::cout << "DiamondTrap >> "  << "Destructor called" << std::endl;
 }

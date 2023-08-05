@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 18:40:47 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/03 18:53:22 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/04 16:55:54 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class MateriaSource : public IMateriaSource
 {
     private:
-        Materia
+        AMateria *AMateria_[4];
     public:
         MateriaSource();
         ~MateriaSource();
-        void learnMateria(AMateria*);
+        void learnMateria(AMateria* m);
         AMateria* createMateria(std::string const & type);
 };
 #endif
