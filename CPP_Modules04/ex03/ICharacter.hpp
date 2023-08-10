@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/03 16:16:11 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/04 17:27:50 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/10 11:51:19 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/10 17:16:50 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 #include "AMateria.hpp"
-#include <iostream>
-
+#include <string>
 class ICharacter
 {
     public:
@@ -24,5 +23,4 @@ class ICharacter
     virtual void unequip(int idx) = 0;
     virtual void use(int idx, ICharacter& target) = 0;
 };
-
 #endif

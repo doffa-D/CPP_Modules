@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/03 18:40:47 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/04 16:55:54 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/10 15:10:04 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/10 17:13:54 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 class MateriaSource : public IMateriaSource
 {
     private:
-        AMateria *AMateria_[4];
+        AMateria *Materia[4];
     public:
         MateriaSource();
         ~MateriaSource();
-        void learnMateria(AMateria* m);
+        MateriaSource(const MateriaSource& copy);
+        MateriaSource &operator=(const MateriaSource&assing);
+        void learnMateria(AMateria*);
         AMateria* createMateria(std::string const & type);
 };
 #endif

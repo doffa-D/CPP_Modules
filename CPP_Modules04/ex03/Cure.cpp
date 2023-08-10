@@ -5,47 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/03 15:42:09 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/03 17:02:06 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/10 11:48:54 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/10 18:23:34 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ICharacter.hpp"
 #include "Cure.hpp"
 
 Cure::Cure()
 {
-    this->type = "cure";
-    std::cout << "Cure " << this->type <<" default Constructor called" << std::endl;
+    // std::cout << "Cure Default Constructor Called" << std::endl;
+    this->_type = "cure";
 }
 
-Cure &Cure::operator=(const Cure &assign)
+Cure &Cure::operator=(const Cure &assing)
 {
-    std::cout << "Cure " << this->type <<" assign Operator called" << std::endl;
-
-    if(this != &assign)
-    {
-        this->type = assign.type;
-    }
+    // std::cout << "Cure operator Called" << std::endl;
+    if(this != &assing)
+        this->_type = assing._type;
     return *this;
 }
 
 Cure::Cure(const Cure &copy)
 {
+    // std::cout << "Cure copy Called" << std::endl;
     *this = copy;
-    std::cout << "Cure " << this->type << " Copy Constructer called" << std::endl;
-}
-AMateria *Cure::clone()const
-{
-    return (new Cure(*this));
 }
 
-
-void    Cure::use(ICharacter& target)
+AMateria* Cure::clone() const
 {
-    std::cout << "Cure: " << "* heals " << target.getName() << "’s wounds *";
+    // std::cout << "Cure clone Called" << std::endl;
+    return new Cure(*this);
+}
+
+void Cure::use(ICharacter& target)
+{
+    std::cout << "* heals  " << target.getName() << " ’s wounds *"<< std::endl;
 }
 
 Cure::~Cure()
 {
-    std::cout << "Cure " << this->type <<" Destructor called" << std::endl;
+    // std::cout << "Cure deconstructor Called" << std::endl;
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/03 18:40:42 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/04 17:15:30 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/10 15:58:15 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/10 18:36:44 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,58 @@
 
 MateriaSource::MateriaSource()
 {
-    std::cout << "MateriaSource constructor called" << std::endl;
-    for(int i = 0;i<4;i++)
-    {
-        this->AMateria_[i] = NULL;
-    }
+    // std::cout << "MateriaSource Constructor Called" << std::endl;
+    for(int i = 0;i <4 ;i++)
+        this->Materia[i] = NULL;
 }
 
+MateriaSource::MateriaSource(const MateriaSource& copy)
+{
+    // std::cout << "MateriaSource copy Called" << std::endl;
+    *this = copy;
+}
+
+MateriaSource &MateriaSource::operator=(const MateriaSource&assing)
+{
+    // std::cout << "MateriaSource operator Called" << std::endl;
+    if(this != &assing)
+    {
+        for(int i = 0;i < 4;i++)
+        {
+            this->Materia[i] = assing.Materia[i];
+        }
+    }
+    return *this;
+}
 void MateriaSource::learnMateria(AMateria* m)
 {
-    for(int i = 0;i <4;i++)
+    for(int i = 0; i < 4; i++)
     {
-        if(this->AMateria_[i] == NULL)
+        if(this->Materia[i] == NULL)
         {
-            this->AMateria_[i] = m;
-            std::cout << "learnMateria with " << m->getType() << std::endl;
+            this->Materia[i] = m->clone();
             return ;
         }
     }
-    std::cout << "can't learnMateria " << m->getType() << std::endl;
+
+    
+}
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    for(int i = 0;i < 4;i++)
+    {
+        if(this->Materia[i] && this->Materia[i]->getType() == type)
+            return this->Materia[i]->clone();
+    }
+    return NULL;
 }
 
-MateriaSource::MateriaSource()
+MateriaSource::~MateriaSource()
 {
-    std::cout << "MateriaSource deconstructor called" << std::endl;
+    // std::cout << "MateriaSource Deconstructor Called" << std::endl;
+    for(int i = 0;i<4;i++)
+    {
+        if(this->Materia[i])
+            delete this->Materia[i];
+    }
 }

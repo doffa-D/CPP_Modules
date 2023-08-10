@@ -5,72 +5,98 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/03 16:30:57 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/04 17:05:07 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/10 11:56:18 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/10 18:39:53 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character()
+Character::Character() : _name("Default") 
 {
-    std::cout << "default Constructor called" << std::endl;
-    this->name = "Character";
-    for(int i = 0; i< 4;i++)
+    // std::cout << "Character Constructor Called" << std::endl;
+    for(int i = 0;i < 4;i++)
     {
         this->inventory[i] = NULL;
     }
 }
-Character::Character(std::string name)
+
+Character::Character(std::string name) : _name(name) 
 {
-    std::cout << "Constructor called" << std::endl;
-    this->name = name;
-    for(int i = 0; i< 4;i++)
+    // std::cout << "Character Constructor Called" << std::endl;
+    for(int i = 0;i < 4;i++)
     {
         this->inventory[i] = NULL;
     }
 }
+
+Character::Character(const Character &copy)
+{
+    // std::cout << "Character copy Called" << std::endl;
+    *this = copy;
+}
+
+Character &Character::operator=(const Character &assing)
+{
+    // std::cout << "Character operator Called" << std::endl;
+    if(this != &assing)
+    {
+        this->_name = assing._name;
+        for(int i = 0;i<4;i++)
+        {
+            this->inventory[i] = assing.inventory[i];
+        }
+    }
+    return *this;
+}
+
 std::string const & Character::getName() const
 {
-    std::cout << "getName called" << std::endl;
-    return this->name;
+    // std::cout << "Character getName Called" << std::endl;
+    return this->_name;
 }
 
 void Character::equip(AMateria* m)
 {
-    for(int i = 0; i < 4;i++)
+    for(int i = 0;i<4;i++)
     {
-        if(this->inventory[i] == NULL)
+        if(m && this->inventory[i] == NULL)
         {
-            this->inventory[i] = m;
-            std::cout << this->name <<" equipped with " << m->getType() << std::endl;
-            return ;
+            this->inventory[i] = m->clone();
+            return;
         }
     }
-    std::cout << this->name << " can't equip " << m->getType() << std::endl;
+    std::cout << "Character " << this->_name << " can't equip " << std::endl;
 }
+
 void Character::unequip(int idx)
 {
-    if(idx < 4 && idx > 0)
+    if(idx >= 0 && idx < 4 && this->inventory[idx])
     {
+        delete this->inventory[idx];
         this->inventory[idx] = NULL;
-        std::cout << this->name <<" unequip "  << std::endl;
         return ;
     }
-    std::cout << this->name << " can't unequip "  << std::endl;
+    std::cout << "Character " << this->_name <<" can't equipped " << std::endl;
 }
 void Character::use(int idx, ICharacter& target)
 {
-    if(idx < 4 && idx > 0)
+    // std::cout << "sssss " << idx <<std::endl;
+    if(idx >= 0 && idx < 4 && this->inventory[idx])
     {
-        std::cout << this->name <<" used "  << std::endl;
         this->inventory[idx]->use(target);
         return ;
     }
-    std::cout << this->name << " can't use "  << std::endl;
-    
+    std::cout << "Character " << this->_name <<" use " << std::endl;
 }
+
+
 Character::~Character()
 {
-    std::cout <<" Destructor called" << std::endl;
+    // std::cout << "Character Deconstructor Called" << std::endl;
+    for(int i = 0;i < 4; i++)
+    {
+        if(this->inventory[i])
+            delete this->inventory[i];
+    }
 }

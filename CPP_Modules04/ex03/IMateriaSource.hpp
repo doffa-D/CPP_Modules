@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/03 18:17:52 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/04 17:26:38 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/10 15:16:54 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/10 15:17:03 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_hpp
-#define IMATERIASOURCE_hpp
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 #include "AMateria.hpp"
 
 class IMateriaSource
@@ -21,5 +21,4 @@ class IMateriaSource
     virtual void learnMateria(AMateria*) = 0;
     virtual AMateria* createMateria(std::string const & type) = 0;
 };
-
 #endif
