@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:17:44 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/11 11:16:17 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:04:02 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int main()
     // delete i;
     delete j;
     // delete meta;
-    // std::cout << "------ WrongAnimal ------" << std::endl;
-    // const WrongAnimal *wrongAnimal = new WrongAnimal();
-    // const WrongAnimal *wrongCat = new WrongCat();
-    // std::cout << wrongAnimal->getType() << " " << std::endl;
-    // std::cout << wrongCat->getType() << " " << std::endl;
-    // wrongAnimal->makesound();
-    // wrongCat->makesound();
+    std::cout << "------ WrongAnimal ------" << std::endl;
+    const WrongAnimal *wrongAnimal = new WrongAnimal();
+    const WrongAnimal *wrongCat = new WrongCat();
+    std::cout << wrongAnimal->getType() << " " << std::endl;
+    std::cout << wrongCat->getType() << " " << std::endl;
+    wrongAnimal->makesound();
+    wrongCat->makesound();
     // delete wrongAnimal;
     // delete wrongCat;
     return 0;

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:50:24 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/31 15:42:54 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:11:22 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Brain::Brain()
 {
+    for(int i = 0;i <= 100;i++)
+    {
+        this->ideas[i] = "ideas";
+    }
     std::cout << "Brain Default Constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 15:58:15 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/11 10:09:02 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:31:33 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void MateriaSource::learnMateria(AMateria* m)
         if(this->Materia[i] == NULL)
         {
             this->Materia[i] = m->clone();
+            delete m;
             return ;
         }
     }

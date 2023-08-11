@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:56:18 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/11 10:09:53 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:33:11 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void Character::equip(AMateria* m)
         if(m && this->inventory[i] == NULL)
         {
             this->inventory[i] = m->clone();
+            delete m;
             return;
         }
     }
@@ -96,6 +97,8 @@ Character::~Character()
     for(int i = 0;i < 4; i++)
     {
         if(this->inventory[i])
+        {
             delete this->inventory[i];
+        }
     }
 }
