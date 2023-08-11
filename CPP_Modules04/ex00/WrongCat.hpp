@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/11 11:33:06 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/11 11:33:07 by hdagdagu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WRONGCAT_HPP
 #define WRONGCAT_HPP
 #include "WrongAnimal.hpp"
@@ -10,6 +22,8 @@ class WrongCat : public WrongAnimal
     public:
         WrongCat();
         ~WrongCat();
+        WrongCat & operator=(WrongCat &assing);
+        WrongCat(WrongCat &copy);
         void makeSound()const ;
 
 };

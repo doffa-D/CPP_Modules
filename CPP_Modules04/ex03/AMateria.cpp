@@ -6,11 +6,12 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 10:26:22 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/10 18:15:33 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:00:29 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 AMateria::AMateria() : _type("Default")
 {
@@ -42,7 +43,7 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    (void)target;
+    std::cout << "AMateria " << this->_type << " used on " << target.getName() << std::endl;
 }
 
 AMateria::~AMateria()

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 16:58:51 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/07/31 12:03:02 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:14:38 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 class Dog : public Animal
 {
-    private:
     public:
         Dog();
         ~Dog();
+        Dog(const Dog &copy);
+        Dog & operator=(const Dog &assign);
         void makeSound() const;
 };
 

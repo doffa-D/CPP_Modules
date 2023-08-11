@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:56:18 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/10 18:39:53 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:09:53 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void Character::unequip(int idx)
 }
 void Character::use(int idx, ICharacter& target)
 {
-    // std::cout << "sssss " << idx <<std::endl;
     if(idx >= 0 && idx < 4 && this->inventory[idx])
     {
         this->inventory[idx]->use(target);

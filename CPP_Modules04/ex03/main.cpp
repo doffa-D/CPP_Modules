@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:38:28 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/10 18:43:37 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:43:07 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ int main()
     me->use(1, *bob);
     me->use(2, *bob);
     me->use(3, *bob);
-    me->use(4, *bob);
-    // delete bob;
-    // delete me;
-    // delete src;
+    delete bob;
+    delete me;
+    delete src;
     return 0;
 }
