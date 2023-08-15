@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,23 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(): _name("default") , _GradeToSign(100),_GradeToExecute(50)
+AForm::AForm(): _name("default") , _GradeToSign(100),_GradeToExecute(50)
 {
     this->Sign = false; 
 }
 
-Form::Form(std::string name,int GradeToSign,int GradeToExecute) : _name(name) , _GradeToSign(GradeToSign),_GradeToExecute(GradeToExecute)
+AForm::AForm(std::string name,int GradeToSign,int GradeToExecute) : _name(name) , _GradeToSign(GradeToSign),_GradeToExecute(GradeToExecute)
 {
     this->Sign = false;    
     if(GradeToSign < 1)
-        throw Form::GradeTooHighException();
+        throw AForm::GradeTooHighException();
     else if(GradeToSign > 150)
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 }
 
-Form &Form::operator=(const Form &assing)
+AForm &AForm::operator=(const AForm &assing)
 {
     if(this != &assing)
     {
@@ -35,46 +35,46 @@ Form &Form::operator=(const Form &assing)
     return *this;
 }
 
-Form::Form(Form &copy) : _name(copy._name),_GradeToSign(copy._GradeToSign),_GradeToExecute(copy._GradeToExecute)
+AForm::AForm(AForm &copy) : _name(copy._name),_GradeToSign(copy._GradeToSign),_GradeToExecute(copy._GradeToExecute)
 {
     this->Sign = copy.Sign;
 }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
     return this->_name;
 }
 
-int Form::getGradeToSign() const
+int AForm::getGradeToSign() const
 {
     return this->_GradeToSign;
 }
 
-int Form::getGradeToExecute() const
+int AForm::getGradeToExecute() const
 {
     return this->_GradeToExecute;
 }
 
-bool Form::getSign() const
+bool AForm::getSign() const
 {
     return this->Sign;
 }
 
-void Form::beSigned(Bureaucrat &b)
+void AForm::beSigned(Bureaucrat &b)
 {
     if(b.getGrade() > this->_GradeToSign)
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     this->Sign = true;
 }
 
 
-std::ostream &operator<<(std::ostream& out, const Form& instance)
+std::ostream &operator<<(std::ostream& out, const AForm& instance)
 {
     out << "Name : " << instance.getName() << std::endl << "Grade To Sign : " << instance.getGradeToSign() << std::endl <<  "Grade To Execute : " << instance.getGradeToExecute() << std::endl <<  "Sign : "<< instance.getSign() << std::endl;
     return out;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 
 }

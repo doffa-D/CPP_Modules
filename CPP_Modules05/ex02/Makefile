@@ -6,14 +6,14 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/08/14 20:04:55 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/08/15 12:10:12 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 OBJDIR = .objFiles
-FILES = main Bureaucrat AForm
+FILES = main Bureaucrat AForm ShrubberyCreationForm PresidentialPardonForm RobotomyRequestForm
 
 SRC = $(FILES:=.cpp)
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
