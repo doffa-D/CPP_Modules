@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 11:13:20 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/16 13:42:04 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/17 11:25:45 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/17 12:08:13 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#ifndef Intern_hpp
+#define Intern_hpp
+#include <iostream>
+#include "AForm.hpp"
 
-int main()
+class Intern
 {
-    try
-    {
-        Bureaucrat a("Mark",100);
-        Form z("You",10,50);
-        z.beSigned(a);
-        a.signForm(z);
-        std::cout << z << std::endl;
-    }
-    catch (std::exception & e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
-}
+    public:
+        Intern();
+        ~Intern();
+        Intern(Intern&copy);
+        Intern& operator=(Intern &assing);
+        AForm *makeForm(std::string name,std::string Target);
+};
+#endif

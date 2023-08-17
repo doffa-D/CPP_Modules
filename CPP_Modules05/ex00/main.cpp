@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 11:13:20 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/14 11:42:02 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:19:43 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ int main()
 {
     try
     {
-        Bureaucrat a("me",150);
-        std::cout << a << std::endl;
-        a.decrement();
+        Bureaucrat a("Mark",150);
     }
-    catch (Bureaucrat::GradeTooHighException & e)
+    catch (std::exception & e)
     {
         std::cout << e.what() << std::endl;
     }
-    std::cout << "hello " << std::endl;
+
 }
