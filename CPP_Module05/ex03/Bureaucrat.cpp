@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 09:36:08 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/17 11:23:44 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/17 20:48:01 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void Bureaucrat::signForm(AForm&Aform)
     }
     catch(const std::exception& e)
     {
-        std::cout <<this->getName() <<" couldn’t sign " << Aform.get_Name() << e.what() << std::endl;
+        std::cout <<this->getName() <<" couldn’t sign " << Aform.get_Name() << " " << e.what() << std::endl;
     }
 }
 

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:52:47 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/02 10:26:05 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:42:07 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main( void )
 {
     // Fixed a;
     // Fixed const b( 10 );
-    Fixed const c( 2.5f );
+    Fixed const c( 5.5f );
     // Fixed const d( b );
     // a = Fixed( 1234.4321f );
     // std::cout << "a is " << a << std::endl;
