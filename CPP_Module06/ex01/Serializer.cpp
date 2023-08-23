@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 18:39:11 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/22 18:39:12 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/22 20:25:05 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,14 @@ Serializer & Serializer::operator=(const Serializer &assign)
 {
     (void) assign;
     return *this;
+}
+
+uintptr_t Serializer::serialize(Data* ptr)
+{
+    return reinterpret_cast<uintptr_t>(ptr);
+}
+
+Data* Serializer::deserialize(uintptr_t raw)
+{
+    return reinterpret_cast<Data *>(raw);
 }

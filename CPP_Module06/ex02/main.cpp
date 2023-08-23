@@ -6,24 +6,19 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 10:44:33 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/22 20:32:59 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:20:57 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-
-int main() 
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+int main()
 {
-    Data Original(1,588.6);
-
-    uintptr_t cast =  Serializer::serialize(&Original);
-
-    Data *cast2 = Serializer::deserialize(cast);
-
-    if(Original._float == cast2->_float && Original._int == cast2->_int)
-    {
-        std::cout << "Good" << std::endl;
-    }
-    
-    return 0;
+    A a;
+    B b;
+    Base base;
+    base.generate();
+    base.identify(&b);
+    base.identify(b);
 }

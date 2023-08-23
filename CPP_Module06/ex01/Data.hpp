@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 10:44:33 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/22 20:32:59 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/22 20:04:13 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/22 20:08:24 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#ifndef DTATA_HPP
+#define DTATA_HPP
 
-int main() 
+struct Data
 {
-    Data Original(1,588.6);
+    int _int;
+    float _float;
+    Data(int value,float value2) : _int(value),_float(value2)
+    {}
+};
 
-    uintptr_t cast =  Serializer::serialize(&Original);
-
-    Data *cast2 = Serializer::deserialize(cast);
-
-    if(Original._float == cast2->_float && Original._int == cast2->_int)
-    {
-        std::cout << "Good" << std::endl;
-    }
-    
-    return 0;
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 18:39:05 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/22 18:40:19 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/22 20:25:11 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
 
 #include <iostream>
 #include <string>
-
-typedef struct Data
-{
-    
-} Data;
+#include "Data.hpp"
 
 class Serializer 
 {

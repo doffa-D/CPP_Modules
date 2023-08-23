@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 10:44:33 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/22 20:32:59 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/08/22 20:35:04 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/08/22 20:35:53 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#include "Base.hpp"
+#ifndef A_HPP
+#define A_HPP
 
-int main() 
+#include <iostream>
+#include <string>
+
+class A : public Base
 {
-    Data Original(1,588.6);
+    private:
+    public:
+};
 
-    uintptr_t cast =  Serializer::serialize(&Original);
-
-    Data *cast2 = Serializer::deserialize(cast);
-
-    if(Original._float == cast2->_float && Original._int == cast2->_int)
-    {
-        std::cout << "Good" << std::endl;
-    }
-    
-    return 0;
-}
+#endif // A_HPP
