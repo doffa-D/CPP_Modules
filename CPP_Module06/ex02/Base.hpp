@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:49:44 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/22 20:50:20 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:28:57 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Base
     public:
         Base();
         virtual ~Base();
-        Base * generate(void);
-        void identify(Base* p);
-        void identify(Base& p);
 };
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
 
 #endif // Base_HPP

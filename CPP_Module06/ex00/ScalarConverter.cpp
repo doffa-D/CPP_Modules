@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 09:39:05 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/22 18:06:28 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:30:02 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,7 +251,6 @@ bool ScalarConverter::convert(const std::string& iput)
     }
     else if(TypeChar)
     {
-    
         ScalarConverter::PrintChar();
     }
     return true;
