@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 10:44:33 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/22 20:32:59 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/23 19:31:21 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int main()
     {
         std::cout << "Good" << std::endl;
     }
-    
+    else
+        std::cout << "Not Good" << std::endl;
+
     return 0;
 }

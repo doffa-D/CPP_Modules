@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/08/22 20:33:32 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/08/23 20:20:23 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FILES = main Base
 SRC = $(FILES:=.cpp)
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
-NAME = Conversion
+NAME = Identify
 
 # DEBUG
 ifeq ($(DEBUG), 1)

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 12:21:17 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/16 13:32:11 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/08/27 13:21:31 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ Form &Form::operator=(Form &assing)
 
 void Form::beSigned(Bureaucrat&Bureaucrat)
 {
-    if(Bureaucrat.getGrade() >= this->_GridToSing)
+    if(Bureaucrat.getGrade() > this->_GridToSing)
         throw Form::GradeTooLowException();
     else
         this->_Sing = true;

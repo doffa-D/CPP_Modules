@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/08/22 20:24:51 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/08/23 20:19:01 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FILES = main Serializer
 SRC = $(FILES:=.cpp)
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
-NAME = Conversion
+NAME = Serializer
 
 # DEBUG
 ifeq ($(DEBUG), 1)
