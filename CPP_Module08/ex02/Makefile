@@ -6,19 +6,19 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/08/25 19:16:53 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/08/29 16:53:08 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+FLAGS = -Wall -Wextra -Werror# -std=c++98 
 OBJDIR = .objFiles
 FILES = main 
 
 SRC = $(FILES:=.cpp)
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
-NAME = whatever
+NAME = MutantStack
 
 # DEBUG
 ifeq ($(DEBUG), 1)
