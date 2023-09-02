@@ -5,192 +5,195 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 13:24:20 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/31 16:30:57 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/09/02 14:51:17 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/09/02 23:11:21 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(std::string fileName): _Data_File_Name("data.csv"),inputFile(fileName)
+BitcoinExchange::BitcoinExchange(std::string FileName) : _InputFile(FileName)
 {
-    // std::cout << "Default Constructor called of BitcoinExchange" << std::endl;
+	if(!_InputFile.is_open())
+		throw std::runtime_error("can't open " + FileName);
+	// std::cout << "Default Constructor called of BitcoinExchange" << std::endl;
 }
-
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 {
-    (void) copy;
-    // std::cout << "Copy Constructor called of BitcoinExchange" << std::endl;
+	(void) copy;
+	// std::cout << "Copy Constructor called of BitcoinExchange" << std::endl;
 }
 
 BitcoinExchange::~BitcoinExchange()
 {
-    // std::cout << "Destructor called of BitcoinExchange" << std::endl;
+	// std::cout << "Destructor called of BitcoinExchange" << std::endl;
 }
 
 BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &assign)
 {
-    (void) assign;
-    return *this;
+	(void) assign;
+	return *this;
 }
-void BitcoinExchange::minicheck()
+bool BitcoinExchange::ParsserValue(std::string value,std::string ReadLine)
 {
-    if(!_Data_File_Name.is_open())
-        throw std::runtime_error("Error: could not open file.");
-    // outFile.open("text.txt");
+	float valuee = strtod(value.c_str(),NULL);
+	
+	if(value.find_first_not_of("-.0123456789") != std::string::npos)
+	{
+		std::cout << "Error: bad input => " << ReadLine << std::endl;
+		return false;
+	}
+	if(valuee < 0)
+	{
+		std::cout << "Error: not a positive number."<< std::endl;
+		return false;
+	}
+	else if(valuee > 1000)
+	{
+		std::cout << "Error: too large a number."<< std::endl;
+		return false;
+	}
+	return true;
 }
-void BitcoinExchange::check_data()
+bool BitcoinExchange::CheckCurrentTime(int Year,int Month,int Daye)
 {
-    
-}
 
-void BitcoinExchange::getData()
-{
-    minicheck();
-    std::string line;
-    while (std::getline(_Data_File_Name, line)) 
-    {
-        std::istringstream ss(line);
-        while (std::getline(ss, line))
-        {
-            size_t commaPos = line.find(',');
-            if (commaPos != std::string::npos)
-            {
-                std::string date = line.substr(0, commaPos);
-                if(line.substr(commaPos + 1).find_first_not_of(".0123456789"))
-                {
-                    float value = std::strtod(line.substr(commaPos + 1).c_str(), NULL);        
-                    dataMap.insert(std::make_pair(date, value));      
-                }
-            }
-        }
-    }
-    // std::map<std::string, double>::iterator it = dataMap.begin(); 
-    // for(;it != dataMap.end();it++)
-    // {
-    //     std::cout << it->first << " " << it->second << "   " << std::endl;
-    // }
-    _Data_File_Name.close();
-    return ;
-}
-
-bool isValidString(const std::string& str) 
-{
-    return str.find_first_not_of(" -0123456789") == std::string::npos;
-}
-
-bool BitcoinExchange::parssing(std::string date,std::string value)
-{
-    std::string Year;
-    std::string Month;
-    std::string Day;
-
-    std::istringstream ss(date);
-
-    std::getline(ss, Year, '-');
-    std::getline(ss, Month, '-');
-    std::getline(ss, Day);
-
-    (void)value;
-    int a = 0;
-    for(int i = 0;date[i] !='\0';i++ )
-    {
-        if(date[i] == '-')
-            a++;
-    }
-    if(a != 2)
-        throw std::runtime_error("error -");
-    
-    if(!(date.find_first_not_of("-0123456789") == std::string::npos))
-    {
-        std::cout << "Error: bad input => "<< date << std::endl;
-        return false;
-    }
-    else
-    {
-        int intYear = std::strtol(Year.c_str(), NULL,10);
-        int intMonth = std::strtol(Month.c_str(), NULL,10);
-        int intDay = std::strtol(Day.c_str(), NULL,10);
-
-        // std::cout << "===== "<< intMonth << std::endl;
-        // int intYear = std::stoi(Year);
-        // int intMonth = std::stoi(Month);
-        // int intDay = std::stoi(Day);
-        if(intDay > 31 || intMonth > 12 || intYear > 2023 || intDay <= 0 || intMonth <= 0 || intYear <= 0)
-        {
-            std::cout << "Error: bad input => "<< date << std::endl;
-            return false;
-        }
-    }
-    if(!(value.find_first_not_of("-.0123456789") == std::string::npos))
-    {
-        std::cout << "Error: bad input => "<< value << std::endl;
-            return false;
-    }
-    double p = std::strtod(value.c_str(),NULL);
-    if(p < 0)
-    {
-        std::cout << "Error: not a positive number." << std::endl;
-            return false;
-    }
-    else if(p > INT_MAX)
-    {
-        std::cout << "Error: too large a number." << std::endl;
-            return false;
-    }
-    return true;
-
+	std::time_t t = std::time(0);
+	std::tm *now =  std::localtime(&t);
+	if(Year == 0 || Month == 0 || Daye == 0 || Month > 12)
+		return false;
+	//Check my current year
+	if(Year > now->tm_year + 1900)
+		return false;
+	else if(Year == now->tm_year + 1900)
+	{
+		if(Month > now->tm_mon + 1)
+			return false;
+		else if(Month == now->tm_mon + 1)
+		{
+			if(Daye > now->tm_mday)
+				return false;
+		}
+	}
+	//Check invention time btc
+	if(Year < 2009)
+		return false;
+	else if(Year == 2009)
+	{
+		if(Month < 1)
+			return false;
+		else if(Month == 1)
+		{
+			if(Daye < 3)
+				return false;
+		}
+	}
+	//Check day off month
+	if(Month == 4 || Month ==  6 || Month ==  9 || Month ==  11)
+	{
+		if(Daye > 31)
+			return false;
+	}
+	else if(Month != 2)
+	{
+		if(Daye > 30)
+			return false;
+	}
+	else
+	{
+		if(Daye > 28)
+			return false;
+	}
+	return true;
 }
 
-void BitcoinExchange::getFile()
+bool BitcoinExchange::ParsserDate(std::string date,std::string ReadLine)
 {
-    // minicheck();
-    std::string line;
-    while (!inputFile.eof()) 
-    {
-        std::getline(inputFile, line);
-        std::istringstream ss(line);
-        while (std::getline(ss, line))
-        {
-            size_t commaPos = line.find('|');
-            if (commaPos != std::string::npos)
-            {
-                std::string date = line.substr(0, commaPos);
-                std::string value = line.substr(commaPos + 2);
-                date.erase(std::remove_if(date.begin(), date.end(), ::isspace), date.end());
-                
-                if(parssing(date,value) == true)
-                {
-                    std::map<std::string ,double>::iterator it = dataMap.find(date);
-                    double valuee = std::strtod(value.c_str(), NULL);
-                    if ( it != dataMap.end()) 
-                    {
+	if(std::count(date.begin(),date.end(),'-') != 2)
+	{
+		std::cout << "Error: bad input => " << ReadLine << std::endl;
+		return false;
+	}
+	else
+	{
+		size_t Pos1 =  date.find('-');
+		std::string Year = date.substr(0,Pos1);
+		size_t Pos2 = date.find('-',Pos1 + 1);
+		std::string Month = date.substr(Pos1 + 1,Pos2 - Pos1 - 1);
+		std::string Day = date.substr(Pos2 + 1);
 
-                        std::cout << date << " => " << value << " = " << it->second * valuee<< std::endl;
-                    } 
-                    else if(it == dataMap.end())
-                    {
-                        std::map<std::string ,double>::iterator lower = dataMap.lower_bound(date);
-                        lower--;
-                        std::cout << date << " => " << value << " = " << lower->second *  valuee << std::endl;
-                    }
-                }
-            }
-            else
-            {
-                std::cout << "Error: bad input => " << line << std::endl;
-            }
-        }
-    }
-
-    inputFile.close();
-    return ;
+		int Yearr = strtod(Year.c_str(),NULL);
+		int Monthh = strtod(Month.c_str(),NULL);
+		int Daye = strtod(Day.c_str(),NULL);
+		
+		if(CheckCurrentTime(Yearr,Monthh,Daye) == false)
+		{
+			std::cout << "Error: bad input => " << ReadLine << std::endl;
+			return false;
+		}
+	}
+	return true;
 }
 
-void BitcoinExchange::read_file()
+void BitcoinExchange::ReadFile()
 {
-    getData();
-    getFile();
+	std::string ReadLine;
+	std::string _BackupReadLine;
+	std::getline(_InputFile,ReadLine);
+	while(std::getline(_InputFile,ReadLine))
+	{
+		_BackupReadLine = ReadLine;
+		ReadLine.erase(std::remove_if(ReadLine.begin(), ReadLine.end(), ::isspace), ReadLine.end());
+		size_t Pos = ReadLine.find('|');
+		if(Pos != std::string::npos)
+		{
+			std::string date = ReadLine.substr(0,Pos);
+			std::string value = ReadLine.substr(Pos+1);
+			if(ParsserValue(value,_BackupReadLine) == true && ParsserDate(date,_BackupReadLine) == true)
+			{
+				std::map<std::string ,float>::iterator it = Data.find(date);
+				float valuee = std::strtod(value.c_str(), NULL);
+				if ( it != Data.end()) 
+				{
 
+					std::cout << date << " => " << value << " = " << it->second * valuee<< std::endl;
+				} 
+				else if(it == Data.end())
+				{
+					std::map<std::string ,float>::iterator lower = Data.lower_bound(date);
+					lower--;
+					std::cout << date << " => " << value << " = " << lower->second *  valuee << std::endl;
+				}
+			}
+		}
+		else if(ReadLine.empty() == 0)
+		{
+			std::cout <<"Error: bad input => " << ReadLine << std::endl;
+		}
+	}
+	_InputFile.close();
+}
+
+void BitcoinExchange::ReadData()
+{
+    std::ifstream _InputFile("data.csv");
+	if(!_InputFile.is_open())
+		throw std::runtime_error("can't open data.csv");
+	std::string ReadLine;
+	while(std::getline(_InputFile,ReadLine))
+	{
+		size_t Pos = ReadLine.find(',');
+		if(Pos != std::string::npos)
+		{
+			if(ReadLine.substr(Pos + 1).find_first_not_of(".0123456789"))
+			{
+				std::string date = ReadLine.substr(0,Pos);
+				double value = strtod(ReadLine.substr(Pos + 1).c_str(),NULL);
+				Data[date] = value;
+			}
+		}
+	}
+	_InputFile.close();
 }
