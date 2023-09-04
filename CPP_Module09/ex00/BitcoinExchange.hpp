@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:51:13 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/02 22:09:12 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/02 23:13:31 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ class BitcoinExchange
         BitcoinExchange();
     public:
         BitcoinExchange(std::string FileName);
-        BitcoinExchange(const BitcoinExchange &copy);
-        ~BitcoinExchange();
-        BitcoinExchange & operator=(const BitcoinExchange &assign);
         bool ParsserDate(std::string date,std::string ReadLine);
         bool ParsserValue(std::string value,std::string ReadLine);
         bool CheckCurrentTime(int Year,int Month,int Daye);

@@ -6,61 +6,64 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:59:08 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/03 17:26:45 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/04 10:04:56 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "RPN.hpp"
 
+void RPN::checkNumber(std::string string)
+{
+    std::vector<std::string> vector;
+    while(string.find(' ') != std::string::npos)
+    {
+        size_t Pos = string.find(' ');
+        std::string token = string.substr(0,Pos);
+        vector.push_back(token);
+        string.erase(0,Pos + 1);
+    }
+    if(!string.empty())
+        vector.push_back(string);
+    for(size_t i = 0;i < vector.size();i++)
+    {
+        if(vector[i].size() > 1)
+            throw std::runtime_error("Error");
+    }
+}
+
 void RPN::calculator(std::string number)
 {
-    for(int i = 0;number[i];i++)
+    checkNumber(number);
+    for(size_t i = 0;i < number.length();i++)
     {
         if(number[i] == ' ')
-        {
             continue;
-        }
         else if(isdigit(number[i]))
         {
-            int nb = number[i]- '0';
-            my_stack.push(nb);
+            my_stack.push(number[i] - '0');
         }
-        else if(number.size() >= 2)
+        else if(my_stack.size() >= 2 && (number[i] == '+' || number[i] == '-' || number[i] == '*' || number[i] == '/'))
         {
-            if(number[i] == '+' || number[i] == '-' || number[i] == '*' || number[i] == '/')
-            {
-                int a = my_stack.top();
-                my_stack.pop();
-                int b = my_stack.top();
-                my_stack.pop();
-                if(number[i] == '+')
-                    my_stack.push(b + a);
-                else if(number[i] == '-')
-                    my_stack.push(b - a);
-                else if(number[i] == '*')
-                    my_stack.push(b * a);
-                else if(number[i] == '/')
-                    my_stack.push(b / a);
-            }
-            else
-            {
-                std::cout << "Invalid Input" << std::endl;
-                return ;
-            }
+            int a = my_stack.top();
+            my_stack.pop();
+            int b = my_stack.top();
+            my_stack.pop();
+            if(number[i] == '+')
+                my_stack.push(b + a);
+            else if(number[i] == '-')
+                my_stack.push(b - a);
+            else if(number[i] == '*')
+                my_stack.push(b * a);
+            else if(number[i] == '/')
+                my_stack.push(b / a);
         }
-        else if(my_stack.size() == 1)
+        else
+            throw std::runtime_error("Error");
+        if(my_stack.size() == 1 && i + 1 == number.length())
         {
             std::cout << my_stack.top() << std::endl;
         }
-        else
-        {
-            std::cout << "Invalid Input" << std::endl;
-        }
     }
-    MutantStack<int>::iterator it = my_stack.begin();
-    for(;it != my_stack.end();it++)
-    {
-        std::cout << *it << std::endl;
-    }
+
 }

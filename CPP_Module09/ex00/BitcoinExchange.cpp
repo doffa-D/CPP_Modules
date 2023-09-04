@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:51:17 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/02 23:11:21 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/02 23:14:37 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,9 @@ BitcoinExchange::BitcoinExchange(std::string FileName) : _InputFile(FileName)
 {
 	if(!_InputFile.is_open())
 		throw std::runtime_error("can't open " + FileName);
-	// std::cout << "Default Constructor called of BitcoinExchange" << std::endl;
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
-{
-	(void) copy;
-	// std::cout << "Copy Constructor called of BitcoinExchange" << std::endl;
-}
 
-BitcoinExchange::~BitcoinExchange()
-{
-	// std::cout << "Destructor called of BitcoinExchange" << std::endl;
-}
-
-BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &assign)
-{
-	(void) assign;
-	return *this;
-}
 bool BitcoinExchange::ParsserValue(std::string value,std::string ReadLine)
 {
 	float valuee = strtod(value.c_str(),NULL);
