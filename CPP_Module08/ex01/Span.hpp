@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:34:44 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/28 10:40:14 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:41:15 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ class Span
         int shortestSpan();
         int longestSpan();
         void addNumber(std::list<int>::iterator begin,std::list<int>::iterator end);
-        void get_array();
-
 };
 
 #endif // Span_HPP

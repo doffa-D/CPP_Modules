@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:34:41 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/08/28 14:46:45 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/06 19:46:19 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ Span::Span(unsigned int N) : _N(N)
 
 Span::Span(const Span &copy)
 {
-    (void) copy;
     *this = copy;
 }
 
@@ -53,12 +52,12 @@ int Span::shortestSpan()
     _array.sort();
     int _short = INT_MAX;
     std::list<int>::iterator prev = _array.begin();
-    for (std::list<int>::iterator it = std::next(_array.begin()); it != _array.end(); ++it)
+    for (std::list<int>::iterator next = std::next(_array.begin()); next != _array.end(); ++next)
     {
-        int diff = *it - *prev;
+        int diff = *next - *prev;
         if(_short > diff)
             _short = diff;
-        prev = it;
+        prev = next;
     }
     return _short;
 }
@@ -76,13 +75,4 @@ void Span::addNumber(std::list<int>::iterator begin,std::list<int>::iterator end
     if(_array.size() + *end >= _N)
         throw std::out_of_range("Span is already full");
     _array.insert(_array.end(),begin,end);
-
-
-}
-void Span::get_array()
-{
-    for(std::list<int>::iterator it = _array.begin();it != _array.end();it++)
-    {
-        std::cout << *it << std::endl;
-    }
 }
