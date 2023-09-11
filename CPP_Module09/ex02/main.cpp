@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:34:28 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/11 15:34:47 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:12:15 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ int main(int argc, char **argv)
 	for(size_t i = 0;i < S.size();i++ )
 	{
 		std::cout << S[i] << " ";
+
+		
 	}
 	std::cout << std::endl;
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << std::fixed << time << " us" << std::endl; 
