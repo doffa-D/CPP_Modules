@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:59:02 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/04 11:40:12 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:38:02 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ class MutantStack : public std::stack<T>
     public:
         MutantStack()
         {
-            std::cout << "Default Constructor called of MutantStack" << std::endl;
+            // std::cout << "Default Constructor called of MutantStack" << std::endl;
         }
         MutantStack(const MutantStack &copy)
         {
             (void) copy;
-            std::cout << "Copy Constructor called of MutantStack" << std::endl;
+            // std::cout << "Copy Constructor called of MutantStack" << std::endl;
         }
         ~MutantStack()
         {
-            std::cout << "Destructor called of MutantStack" << std::endl;
+            // std::cout << "Destructor called of MutantStack" << std::endl;
         }
         MutantStack & operator=(const MutantStack &assign)
         {
