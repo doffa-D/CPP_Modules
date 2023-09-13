@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:34:28 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/11 19:12:15 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/13 08:38:04 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ void FillStack(std::vector<std::pair<int, int> >& pairs, std::vector<int>& S, st
 }
 
 
+int jacobsthal(int n)
+{
+	return (std::pow(2, n) - std::pow(-1, n)) / 3;
+}
 
 void Sequence(std::vector<int>& S, std::vector<int>& pend, std::vector<std::vector<int>::iterator>& iteratorsaver, const std::vector<std::pair<int, int> >& pairs) 
 {
@@ -116,6 +120,8 @@ int main(int argc, char **argv)
         S.insert(Pos, std::strtod(argv[argc - 1], NULL));
 	}
 
+
+	std::cout << jacobsthal(5) << std::endl;
 
 	clock_t end = clock();
 	double time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
