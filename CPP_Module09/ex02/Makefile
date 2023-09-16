@@ -6,14 +6,14 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 14:44:35 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/09/14 13:08:33 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/09/14 15:31:05 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 OBJDIR = .objFiles
-FILES = main Vector_PmergeMe
+FILES = main Vector_PmergeMe Deque_PmergeMe
 
 SRC = $(FILES:=.cpp)
 OBJ = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))

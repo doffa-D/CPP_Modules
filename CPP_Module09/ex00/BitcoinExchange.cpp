@@ -6,17 +6,34 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:51:17 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/02 23:14:37 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/16 20:01:17 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(std::string FileName) : _InputFile(FileName)
+
+BitcoinExchange::BitcoinExchange()
 {
-	if(!_InputFile.is_open())
-		throw std::runtime_error("can't open " + FileName);
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
+{
+	*this = copy;
+}
+
+BitcoinExchange::~BitcoinExchange()
+{
+}
+
+BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &assign)
+{
+    if(this != &assign)
+	{
+		this->Data = assign.Data;
+	}
+    return *this;
 }
 
 
@@ -121,11 +138,16 @@ bool BitcoinExchange::ParsserDate(std::string date,std::string ReadLine)
 	return true;
 }
 
-void BitcoinExchange::ReadFile()
+void BitcoinExchange::ReadFile(std::string arg)
 {
+    std::ifstream _InputFile(arg);
+	if(!_InputFile.is_open())
+		throw std::runtime_error("can't open " + arg);
 	std::string ReadLine;
 	std::string _BackupReadLine;
 	std::getline(_InputFile,ReadLine);
+	if(ReadLine.compare("date | value") != 0)
+        throw std::runtime_error("Error");
 	while(std::getline(_InputFile,ReadLine))
 	{
 		_BackupReadLine = ReadLine;
@@ -141,7 +163,6 @@ void BitcoinExchange::ReadFile()
 				float valuee = std::strtod(value.c_str(), NULL);
 				if ( it != Data.end()) 
 				{
-
 					std::cout << date << " => " << value << " = " << it->second * valuee<< std::endl;
 				} 
 				else if(it == Data.end())

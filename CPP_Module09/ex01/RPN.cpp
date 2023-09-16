@@ -6,36 +6,53 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:59:08 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/04 10:04:56 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:35:59 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "RPN.hpp"
 
+RPN::RPN()
+{
+}
+
+RPN::RPN(const RPN &copy)
+{
+    *this = copy;
+}
+
+RPN::~RPN()
+{
+}
+
+RPN & RPN::operator=(const RPN &assign)
+{   
+    if(this != &assign)
+    {
+        this->my_stack = assign.my_stack;
+    }
+    return *this;
+}
+
 void RPN::checkNumber(std::string string)
 {
-    std::vector<std::string> vector;
-    while(string.find(' ') != std::string::npos)
+    std::istringstream iss(string);
+    int number;
+    while(iss >> number)
     {
-        size_t Pos = string.find(' ');
-        std::string token = string.substr(0,Pos);
-        vector.push_back(token);
-        string.erase(0,Pos + 1);
-    }
-    if(!string.empty())
-        vector.push_back(string);
-    for(size_t i = 0;i < vector.size();i++)
-    {
-        if(vector[i].size() > 1)
+        if(number > 9)
+        {
             throw std::runtime_error("Error");
+        }
     }
 }
 
 void RPN::calculator(std::string number)
 {
     checkNumber(number);
-    for(size_t i = 0;i < number.length();i++)
+    size_t i = 0;
+    for(;i < number.length();i++)
     {
         if(number[i] == ' ')
             continue;
@@ -60,10 +77,11 @@ void RPN::calculator(std::string number)
         }
         else
             throw std::runtime_error("Error");
-        if(my_stack.size() == 1 && i + 1 == number.length())
-        {
-            std::cout << my_stack.top() << std::endl;
-        }
     }
-
+    if(my_stack.size() == 1 && i == number.size())
+    {
+        std::cout << my_stack.top() << std::endl;
+    }
+    if(my_stack.size() > 1)
+        throw std::runtime_error("Error");
 }

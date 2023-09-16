@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:50:56 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/09/02 22:56:11 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/09/16 20:00:02 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main(int argc,char **argv)
     }
     try
     {
-        BitcoinExchange File(argv[1]);
+        BitcoinExchange File;
         File.ReadData();
-        File.ReadFile();
+        File.ReadFile(argv[1]);
     }
     catch(std::exception &e)
     {
